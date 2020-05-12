@@ -1,7 +1,22 @@
+
+body{
+
+    background-image: url('FFbackground.jpg');
+    background-size:cover;
+    min-height: 100vh;
+
+
+
+}
+
+
+
 button{
 
     display: block;
     background-color: skyblue;
+   
+
 }
 
 header{
@@ -22,12 +37,22 @@ section{
     display: inline-block;
     left: 0px;
     margin: 50px;
+    color:red;
 
 }
 
 .hero{
-
-    display: inline-block;
-    right: 0px;
-    margin: 50px;
+    color: skyblue
 }
+
+
+.hero-monster{
+
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: flex-end;
+
+
+}
+
