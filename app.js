@@ -27,7 +27,7 @@ let monsterImg = document.querySelector('.randomMonster')
 //     e.preventDefault()
 //     let inputValue = input.value
 
-    
+   
 
 
 
@@ -42,8 +42,18 @@ async function getRandomMonster(){
 
         console.log(monsterData.data[randomNumber])
 
+        localStorage.setItem("monsterHealth",'')
+         monsterHealth = (monsterData.data[randomNumber].hitPoints)
+        localStorage.setItem('monsterHealth', monsterHealth)
+        // monsterHealth.push(monsterHealth)
+
 
         renderMonster(monsterData.data[randomNumber])
+
+        
+
+        
+
 
     }catch{
 
@@ -52,10 +62,12 @@ async function getRandomMonster(){
     }
 
 
-
 }
 
 getRandomMonster()
+
+
+
 
 function renderMonster(monster){
     let monsterName = document.createElement('h1')
@@ -88,6 +100,8 @@ async function getHero(){
 
     renderHero(heroData.data[0])
 
+
+
     }catch{
 
         console.log('error')
@@ -107,7 +121,7 @@ function renderHero(hero){
     let heroPic = document.createElement('img')
 
     heroName.innerHTML = hero.name
-    heroPic.setAttribute("src", hero.picture)
+    heroPic.setAttribute("src", 'https://www.mariowiki.com/images/b/b3/Cloud_SSBU.png')
     heroPic.style.width = '225px'
     heroPic.style.height = '250px'
 
@@ -120,6 +134,28 @@ function renderHero(hero){
 }
 
 
+
+
+
+let newMonsterHealth = localStorage.getItem('monsterHealth')
+
+let heroHealth = 2000
+
+// console.log(`monsters health = ${monsterHealth}`)
+
+console.log(`Cloud\'s health = ${heroHealth}`)
+
+if (newMonsterHealth <= 0 ){
+
+
+    newMonsterHealth = 3000
+}
+
+console.log(`monsters health = ${newMonsterHealth}`)
+
+
+
+
 function higherDamage (){
 
     let randomNumber = Math.floor(Math.random() * 21)
@@ -128,7 +164,9 @@ function higherDamage (){
 
     if(randomNumber > 11 ){
 
-        alert( `Cloud does ${randomNumber} damage!`)
+        newMonsterHealth -= randomNumber
+
+        alert( `Cloud does ${randomNumber} damage! monster health is now ${monsterHealth}`)
     }else{
 
         alert('Cloud\'s attack misses!')
@@ -145,7 +183,11 @@ function lowerDamage (){
 
     if(randomNumber > 3 ){
 
-        alert( `Cloud does ${randomNumber} damage!`)
+        newMonsterHealth -= randomNumber
+
+        alert( `Cloud does ${randomNumber} damage! monsters health is now ${monsterHealth}`)
+
+
     }else{
 
         alert('Cloud\'s attack misses!')
@@ -162,5 +204,3 @@ let move2 = document.querySelector('.move2')
 move1.addEventListener('click',higherDamage)
 
 move2.addEventListener('click',lowerDamage )
-
-
