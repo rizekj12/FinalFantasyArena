@@ -54,6 +54,7 @@ https://wireframe.cc/pro/pp/72053a9fd341718
 - be able to use another final fantasy character. 
 - add sounds to the game such as battle music and battle sound effects
 - add defeated monsters to a list for user to see
+- add a third magic attack option for monsters and the character you use. 
 
 
 ## Project Schedule
