@@ -1,0 +1,33 @@
+button{
+
+    display: block;
+    background-color: skyblue;
+}
+
+header{
+
+    text-align: center;
+}
+
+.monster-button{
+
+
+    background-color: tomato;
+
+}
+
+
+section{
+
+    display: inline-block;
+    left: 0px;
+    margin: 50px;
+
+}
+
+.hero{
+
+    display: inline-block;
+    right: 0px;
+    margin: 50px;
+}
