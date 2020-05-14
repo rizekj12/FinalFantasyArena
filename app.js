@@ -1,7 +1,9 @@
 const domain = "https://www.moogleapi.com/"
 const monsterUrl = `https://www.moogleapi.com/api/v1/monsters`
 const heroURL = `https://www.moogleapi.com/api/v1/characters/search?name=Cloud%20Strife`
-
+// window.onload=function(){
+//     document.getElementById('music').play()
+// }
 let section = document.querySelector('#monsterDiv')
 let monsterName = document.querySelector('.monster-name')
 let japaneseName = document.querySelector('.japanese-name')
@@ -29,11 +31,15 @@ async function getRandomMonster() {
     } catch{
         console.log('error')
     }
+   
 }
+
 
 getRandomMonster()
 
 function higherDamage() {
+     document.getElementById('music').play()
+
     let randomNumber = Math.floor(Math.random() * 21)
     let monsterRoll = Math.floor(Math.random() * 21)
 
@@ -70,16 +76,25 @@ function higherDamage() {
     hero_hitpoints.innerHTML = (`Health: ${heroHealth}`)
     monster_hitpoints.innerHTML = (`Health: ${rMonsterHealth}`)
 
-    if (heroHealth === 0) {
-
+    if (heroHealth <= 0) {
+        heroHealth = 0
+        hero_hitpoints.innerHTML = (`Health: ${heroHealth}`)
         alert('you have lost, Game Over! :(')
-    } else if (rMonsterHealth === 0) {
-
+        document.getElementById('music').muted=true;
+        document.getElementById('gameover').play()
+    } else if (rMonsterHealth <= 0) {
+        rMonsterHealth = 0
+        monster_hitpoints.innerHTML = (`Health: ${rMonsterHealth}`)
         alert('Cloud wins the battle!!')
+        document.getElementById('music').muted=true;
+        document.getElementById('victoryMusic').play()
     }
+    
 }
 
 function lowerDamage() {
+
+    document.getElementById('music').play()
     let randomNumber = Math.floor(Math.random() * 21)
     let monsterRoll = Math.floor(Math.random() * 21)
 
@@ -108,9 +123,9 @@ function lowerDamage() {
     } else if (17 >= monsterRoll > 7) {
         heroHealth -= 100
         alert(`monster does 275 damage,`)
-    } else if (monsterRoll < 7) (
+    } else if (monsterRoll < 7) {
         alert('monster missed')
-    )
+    }
     else {
         alert('monster missed')
     }
@@ -119,10 +134,20 @@ function lowerDamage() {
     monster_hitpoints.innerHTML = (`Health: ${rMonsterHealth}`)
 
     if (heroHealth <= 0) {
+        heroHealth = 0
+        hero_hitpoints.innerHTML = (`Health: ${heroHealth}`)
         alert('you have lost, Game Over! :(')
+        document.getElementById('music').muted=true;
+        document.getElementById('gameover').play()
+
     } else if (rMonsterHealth <= 0) {
+        rMonsterHealth = 0
+        monster_hitpoints.innerHTML = (`Health: ${rMonsterHealth}`)
         alert('Cloud wins the battle!!')
+        document.getElementById('music').muted=true;
+        document.getElementById('victoryMusic').play()
     }
+    
 }
 
 getHero()
@@ -211,12 +236,22 @@ function takePotion (){
         heroHealth += 500
         potion.innerHTML = (`Potion(${potionAmount})`)
         hero_hitpoints.innerHTML = (`Health: ${heroHealth}`)
-    }else if (4500 < heroHealth < 5000)
+    }else if (4500 < heroHealth < 5000){
         potionAmount -= 1
         heroHealth = 5000
         potion.innerHTML = (`Potion(${potionAmount})`)
         hero_hitpoints.innerHTML = (`Health: ${heroHealth}`)
+    }
+    else if(potionAmount === 0){
+        potion.innerHTML = (`Potion:0`)
+        hero_hitpoints.innerHTML = (`Health: ${heroHealth}`)
+
+    }
+        
+    
 }
+
+
 
 
 
