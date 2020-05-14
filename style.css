@@ -5,12 +5,7 @@ body{
     background-size:cover;
     background-position:center bottom;
     min-height: 100vh;
-
-
-
 }
-
-
 
 #buttons{
 
@@ -31,13 +26,15 @@ button{
     border: 1px solid black;
     margin: 12px;
     font-size: 13px;
+}
 
+button:hover{
+    text-decoration: underline overline;
 }
 
 
 
 header{
-
     background: black;
     color: white;
     text-align: center;
@@ -45,21 +42,9 @@ header{
 }
 
 .monster-button{
-
-
     background-color: tomato;
-
 }
 
-
-/* section{
-    position: absolute;
-    display: inline-block;
-    right:0px;
-    bottom:0px;
-    margin: 0px;
-    color:red;
-} */
 
 .hero{
     color: skyblue;
@@ -67,40 +52,20 @@ header{
     position: absolute;
     left: 250px;
     bottom: 0px;
-   
-
-    
-    /* align-items: flex-end;
-    flex-direction: column-reverse;
-    justify-content: flex-end;  */
 }
-
-
-/* .hero-monster{
-
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
-    align-items:flex-end;
-    
-
-} */
 
 .Cloud{
   -webkit-transform: scaleX(-1);
-  transform: scaleX(-1);      found this line of code at w3schools : https://www.w3schools.com/howto/howto_css_flip_image.asp       
-
+  transform: scaleX(-1);     /* <----found this line of code at w3schools : https://www.w3schools.com/howto/howto_css_flip_image.asp        */
 }
 
 .randomMonster{
     position: relative;
     object-fit: fill;
     bottom: 0;
-
 }
 
 #monsterDiv{
-
     position: absolute;
     display: inline-block;
     right:100px;
@@ -110,22 +75,15 @@ header{
 }
 
 .monsterImg{
-
-height:300px;
-overflow: hidden;
-
+    height:300px;
+    overflow: hidden;
 }
 
 .monster-health{
-
-font-size: 25px
-
-
+    font-size: 25px
 }
 
 .hero-health{
-
     font-size: 25px;
-    
 }
 
