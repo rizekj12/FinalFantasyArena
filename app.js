@@ -11,6 +11,7 @@ let rMonsterHealth = 0
 let heroHealth = 5000
 let hero_hitpoints = document.querySelector('.hero-health')
 let monster_hitpoints = document.querySelector('.monster-health')
+let potionAmount = 3
 
 async function getRandomMonster() {
     try {
@@ -66,8 +67,8 @@ function higherDamage() {
         alert('monster missed')
     }
 
-    hero_hitpoints.innerHTML = (`HP: ${heroHealth}`)
-    monster_hitpoints.innerHTML = (`HP: ${rMonsterHealth}`)
+    hero_hitpoints.innerHTML = (`Health: ${heroHealth}`)
+    monster_hitpoints.innerHTML = (`Health: ${rMonsterHealth}`)
 
     if (heroHealth === 0) {
 
@@ -130,7 +131,7 @@ function renderHero(hero) {
     let heroName = document.createElement('h1')
     let heroPic = document.querySelector('img')
 
-    hero_hitpoints.innerHTML = (`HP: ${heroHealth}`)
+    hero_hitpoints.innerHTML = (`Health: ${heroHealth}`)
     heroName.innerHTML = hero.name
     heroPic.setAttribute("src", 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a67ac30c-fe21-4e97-8dad-ffa8b2670167/dbpjw5t-23ed5ea9-1d62-4990-8983-75f245a5632b.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvYTY3YWMzMGMtZmUyMS00ZTk3LThkYWQtZmZhOGIyNjcwMTY3XC9kYnBqdzV0LTIzZWQ1ZWE5LTFkNjItNDk5MC04OTgzLTc1ZjI0NWE1NjMyYi5naWYifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.1DTa1_fvKZIw6jzmAI4X__cpXJg42AViBsZsXWl4t1w')
     heroPic.style.width = '225px'
@@ -143,20 +144,24 @@ function renderHero(hero) {
     heroDiv.append(hero_hitpoints)
 }
 
-console.log(`Cloud\'s health = ${heroHealth}`)
-
 let move1 = document.querySelector('.move1')
 let move2 = document.querySelector('.move2')
+let potion = document.querySelector('.potion')
+
+potion.innerHTML = (`Potion(${potionAmount})`)
+
+
 
 move1.addEventListener('click', higherDamage)
 move2.addEventListener('click', lowerDamage)
+potion.addEventListener('click',takePotion)
 
 function renderMonster(monster) {
     let monsterName = document.createElement('h1')
     let monsterJName = document.createElement('h2')
     let monsterPic = document.createElement('img')
 
-    monster_hitpoints.innerHTML = (`HP: ${rMonsterHealth}`)
+    monster_hitpoints.innerHTML = (`Health: ${rMonsterHealth}`)
     monsterName.innerHTML = monster.name
     monsterJName.innerHTML = monster.japaneseName
 
@@ -198,4 +203,20 @@ async function getHero() {
         console.log('error')
     }
 }
+
+function takePotion (){
+    let monsterRoll = Math.floor(Math.random() * 21)
+    if(heroHealth < 5000 && potionAmount > 0){
+        potionAmount -= 1
+        heroHealth += 500
+        potion.innerHTML = (`Potion(${potionAmount})`)
+        hero_hitpoints.innerHTML = (`Health: ${heroHealth}`)
+    }else if (4500 < heroHealth < 5000)
+        potionAmount -= 1
+        heroHealth = 5000
+        potion.innerHTML = (`Potion(${potionAmount})`)
+        hero_hitpoints.innerHTML = (`Health: ${heroHealth}`)
+}
+
+
 
