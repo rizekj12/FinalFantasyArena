@@ -1,8 +1,9 @@
 
 body{
 
-    background-image: url('FFbackground.jpg');
+    background-image: url('background.png');
     background-size:cover;
+    background-position:center bottom;
     min-height: 100vh;
 
 
@@ -11,17 +12,30 @@ body{
 
 
 
-button{
+#buttons{
 
     display: block;
-    background-color: skyblue;
-   
+    position: absolute;
+    bottom: 0px;
+    left:60px;
+    background-color: black;
+    border: 2px solid white;
+    height: 100px;
+    
+}
 
+button{
+    display: block;
+
+    background-color: skyblue;
 }
 
 header{
 
+    background: black;
+    color: white;
     text-align: center;
+    font-size: 50px;
 }
 
 .monster-button{
@@ -32,27 +46,67 @@ header{
 }
 
 
-section{
-
+/* section{
+    position: absolute;
     display: inline-block;
-    left: 0px;
-    margin: 50px;
+    right:0px;
+    bottom:0px;
+    margin: 0px;
     color:red;
-
-}
+} */
 
 .hero{
-    color: skyblue
+    color: skyblue;
+    display: inline-block;
+    position: absolute;
+    left: 250px;
+    bottom: 0px;
+   
+
+    
+    /* align-items: flex-end;
+    flex-direction: column-reverse;
+    justify-content: flex-end;  */
 }
 
 
-.hero-monster{
+/* .hero-monster{
 
     display: flex;
     justify-content: space-around;
     flex-direction: row;
-    align-items: flex-end;
+    align-items:flex-end;
+    
 
+} */
+
+.Cloud{
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);      found this line of code at w3schools : https://www.w3schools.com/howto/howto_css_flip_image.asp       
+
+}
+
+.randomMonster{
+    position: relative;
+    object-fit: fill;
+    bottom: 0;
+
+}
+
+#monsterDiv{
+
+    position: absolute;
+    display: inline-block;
+    right:100px;
+    bottom:0px;
+    margin: 0px;
+    color:red;
+}
+
+.monsterImg{
+
+height:300px;
+overflow: hidden;
 
 }
 
