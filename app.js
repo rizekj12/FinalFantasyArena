@@ -1,9 +1,7 @@
 const domain = "https://www.moogleapi.com/"
 const monsterUrl = `https://www.moogleapi.com/api/v1/monsters`
 const heroURL = `https://www.moogleapi.com/api/v1/characters/search?name=Cloud%20Strife`
-// window.onload=function(){
-//     document.getElementById('music').play()
-// }
+
 let section = document.querySelector('#monsterDiv')
 let monsterName = document.querySelector('.monster-name')
 let japaneseName = document.querySelector('.japanese-name')
@@ -38,7 +36,7 @@ async function getRandomMonster() {
 getRandomMonster()
 
 function higherDamage() {
-     document.getElementById('music').play()
+     
 
     let randomNumber = Math.floor(Math.random() * 21)
     let monsterRoll = Math.floor(Math.random() * 21)
@@ -71,8 +69,11 @@ function higherDamage() {
     }
     else {
         alert('monster missed')
+        
     }
-
+    
+    document.getElementById('music').play()
+    
     hero_hitpoints.innerHTML = (`Health: ${heroHealth}`)
     monster_hitpoints.innerHTML = (`Health: ${rMonsterHealth}`)
 
@@ -94,7 +95,7 @@ function higherDamage() {
 
 function lowerDamage() {
 
-    document.getElementById('music').play()
+    
     let randomNumber = Math.floor(Math.random() * 21)
     let monsterRoll = Math.floor(Math.random() * 21)
 
@@ -129,6 +130,8 @@ function lowerDamage() {
     else {
         alert('monster missed')
     }
+
+    document.getElementById('music').play()
 
     hero_hitpoints.innerHTML = (`Health: ${heroHealth}`)
     monster_hitpoints.innerHTML = (`Health: ${rMonsterHealth}`)
