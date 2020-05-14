@@ -16,8 +16,8 @@ body{
 
     display: block;
     position: absolute;
-    bottom: 0px;
-    left:60px;
+    bottom: 25px;
+    left:120px;
     background-color: black;
     border: 2px solid white;
     height: 100px;
@@ -26,9 +26,15 @@ body{
 
 button{
     display: block;
+    color:white;
+    background-color:black;
+    border: 1px solid black;
+    margin: 12px;
+    font-size: 13px;
 
-    background-color: skyblue;
 }
+
+
 
 header{
 
@@ -108,5 +114,18 @@ header{
 height:300px;
 overflow: hidden;
 
+}
+
+.monster-health{
+
+font-size: 25px
+
+
+}
+
+.hero-health{
+
+    font-size: 25px;
+    
 }
 
