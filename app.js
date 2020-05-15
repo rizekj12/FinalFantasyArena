@@ -251,14 +251,13 @@ async function getHero() {
 }
 
 function takePotion (){
-    let monsterRoll = Math.floor(Math.random() * 21)
-    if(4500 < heroHealth < 5000 && potionAmount > 0){
+    if(4500 < heroHealth && potionAmount > 0){
         potionAmount -= 1
         heroHealth = 5000
         potion.innerHTML = (`Potion(${potionAmount})`)
-        hero_hitpoints.innerHTML = (`Health: ${heroHealth}`
-        )
-    }else if (heroHealth < 5000 && potionAmount > 0){
+        hero_hitpoints.innerHTML = (`Health: ${heroHealth}`)
+        
+    }else if (heroHealth < 4500 && potionAmount > 0){
         potionAmount -= 1
         heroHealth += 500
         potion.innerHTML = (`Potion(${potionAmount})`)
