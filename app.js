@@ -9,7 +9,7 @@ let monsterImg = document.querySelector('.randomMonster')
 let monsterPic = document.createElement('img')
 
 let rMonsterHealth = 0
-let heroHealth = 5000
+let heroHealth = 5200
 let hero_hitpoints = document.querySelector('.hero-health')
 let monster_hitpoints = document.querySelector('.monster-health')
 let potionAmount = 3
@@ -47,7 +47,7 @@ function higherDamage() {
     } else if (10 > randomNumber >= 8) {
         rMonsterHealth -= 300
         alert('Cloud does 300 damage!')
-    } else if (randomNumber < 8) {
+    } else if (randomNumber < 6) {
         alert('Cloud\'s attack misses!')
     } else {
         rMonsterHealth -= 100
@@ -125,14 +125,14 @@ function lowerDamage() {
     let monsterRoll = Math.floor(Math.random() * 21)
 
     if (randomNumber >= 15) {
-        rMonsterHealth -= 350
-        alert(`Cloud does 350 damage!`)
+        rMonsterHealth -= 450
+        alert(`Cloud does 450 damage!`)
     } else if (15 > randomNumber >= 9) {
-        rMonsterHealth -= 250
-        alert(`Cloud does 250 damage!`)
+        rMonsterHealth -= 300
+        alert(`Cloud does 300 damage!`)
     } else if (9 > randomNumber >= 3) {
-        rMonsterHealth -= 225
-        alert('Cloud does 225 damage!')
+        rMonsterHealth -= 275
+        alert('Cloud does 275 damage!')
     } else if (3 > randomNumber) {
         alert('Cloud\'s attack misses!')
     } else {
@@ -287,7 +287,7 @@ async function getHero() {
 function takePotion() {
     if (4500 < heroHealth && potionAmount > 0) {
         potionAmount -= 1
-        heroHealth = 5000
+        heroHealth = 5200
         potion.innerHTML = (`Potion(${potionAmount})`)
         hero_hitpoints.innerHTML = (`Health: ${heroHealth}`)
 
