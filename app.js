@@ -6,6 +6,7 @@ let section = document.querySelector('#monsterDiv')
 let monsterName = document.querySelector('.monster-name')
 let japaneseName = document.querySelector('.japanese-name')
 let monsterImg = document.querySelector('.randomMonster')
+let monsterPic = document.createElement('img')
 
 let rMonsterHealth = 0
 let heroHealth = 5000
@@ -19,25 +20,20 @@ async function getRandomMonster() {
         let monsterData = await axios.get(monsterUrl)
         let randomNumber = Math.floor(Math.random() * monsterData.data.length) + 1
         let randomMonster = monsterData.data[randomNumber]
-
         if (randomMonster.hitPoints === 0) {
             rMonsterHealth = 4000
         } else {
             rMonsterHealth = randomMonster.hitPoints
-            
         }
         renderMonster(randomMonster)
     } catch{
         console.log('error')
     }
-   
 }
-
 
 getRandomMonster()
 
 function higherDamage() {
-     
 
     let randomNumber = Math.floor(Math.random() * 21)
     let monsterRoll = Math.floor(Math.random() * 21)
@@ -70,11 +66,10 @@ function higherDamage() {
     }
     else {
         alert('monster missed')
-        
     }
-    
+
     document.getElementById('music').play()
-    
+
     hero_hitpoints.innerHTML = (`Health: ${heroHealth}`)
     monster_hitpoints.innerHTML = (`Health: ${rMonsterHealth}`)
 
@@ -82,8 +77,18 @@ function higherDamage() {
         heroHealth = 0
         hero_hitpoints.innerHTML = (`Health: ${heroHealth}`)
         alert('you have lost, Game Over! :(')
-        document.getElementById('music').muted=true;
+        document.getElementById('music').muted = true;
         document.getElementById('gameover').play()
+        let time = 2000
+        let fadeOut = setInterval(() => {
+            time -= 200
+            heroPic.style.opacity = time / 2000
+            console.log(time)
+            if (time === 0) {
+                clearInterval(fadeOut)
+            }
+
+        }, 200)
     } else if (rMonsterHealth <= 0) {
         rMonsterHealth = 0
         monster_hitpoints.innerHTML = (`Health: ${rMonsterHealth}`)
@@ -91,20 +96,31 @@ function higherDamage() {
         heroPic.src = "./bladeTwirl.gif"
         heroPic.style.height = "320px"
         heroPic.style.width = "320px"
+
+        let time = 2000
+        let fadeOut = setInterval(() => {
+            time -= 200
+            monsterPic.style.opacity = time / 2000
+            console.log(time)
+            if (time === 0) {
+                clearInterval(fadeOut)
+            }
+
+
+        }, 200)
+
         setTimeout(() => {
             heroPic.src = "./victoryPose.gif"
             heroPic.style.height = "215px"
             heroPic.style.width = "215px"
         }, 2000)
-        document.getElementById('music').muted=true;
+        document.getElementById('music').muted = true;
         document.getElementById('victoryMusic').play()
     }
-    
 }
 
 function lowerDamage() {
 
-    
     let randomNumber = Math.floor(Math.random() * 21)
     let monsterRoll = Math.floor(Math.random() * 21)
 
@@ -149,42 +165,62 @@ function lowerDamage() {
         heroHealth = 0
         hero_hitpoints.innerHTML = (`Health: ${heroHealth}`)
         alert('you have lost, Game Over! :(')
-        document.getElementById('music').muted=true;
+        document.getElementById('music').muted = true;
         document.getElementById('gameover').play()
 
-    } else if (rMonsterHealth <= 0) {
+        let time = 2000
+        let fadeOut = setInterval(() => {
+            time -= 200
+            heroPic.style.opacity = time / 2000
+            console.log(time)
+            if (time === 0) {
+                clearInterval(fadeOut)
+            }
+        }, 200)
+    }else if (rMonsterHealth <= 0) {
         rMonsterHealth = 0
         monster_hitpoints.innerHTML = (`Health: ${rMonsterHealth}`)
         alert('Cloud wins the battle!!')
         heroPic.src = "./bladeTwirl.gif"
         heroPic.style.height = "320px"
         heroPic.style.width = "320px"
+
+        console.log(monsterImg)
+        console.log(monsterPic)
+        let time = 2000
+        let fadeOut = setInterval(() => {
+            time -= 200
+            monsterPic.style.opacity = time / 2000
+            console.log(time)
+            if (time === 0) {
+                clearInterval(fadeOut)
+            }
+        }, 200)
+        
         setTimeout(() => {
             heroPic.src = "./victoryPose.gif"
             heroPic.style.height = "215px"
             heroPic.style.width = "215px"
         }, 2000)
 
-        document.getElementById('music').muted=true;
+        document.getElementById('music').muted = true;
         document.getElementById('victoryMusic').play()
     }
-    
 }
 
 getHero()
 
 function renderHero(hero) {
     let heroName = document.createElement('h1')
-   
 
     hero_hitpoints.innerHTML = (`Health: ${heroHealth}`)
     heroName.innerHTML = hero.name
     heroPic.setAttribute("src", 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a67ac30c-fe21-4e97-8dad-ffa8b2670167/dbpjw5t-23ed5ea9-1d62-4990-8983-75f245a5632b.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvYTY3YWMzMGMtZmUyMS00ZTk3LThkYWQtZmZhOGIyNjcwMTY3XC9kYnBqdzV0LTIzZWQ1ZWE5LTFkNjItNDk5MC04OTgzLTc1ZjI0NWE1NjMyYi5naWYifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.1DTa1_fvKZIw6jzmAI4X__cpXJg42AViBsZsXWl4t1w')
     heroPic.style.width = '235px'
     heroPic.style.height = '225px'
-    
+
     let heroDiv = document.querySelector('.hero')
-    
+
     heroDiv.append(heroName)
     heroDiv.append(heroPic)
     heroDiv.append(hero_hitpoints)
@@ -196,16 +232,13 @@ let potion = document.querySelector('.potion')
 
 potion.innerHTML = (`Potion(${potionAmount})`)
 
-
-
 move1.addEventListener('click', higherDamage)
 move2.addEventListener('click', lowerDamage)
-potion.addEventListener('click',takePotion)
+potion.addEventListener('click', takePotion)
 
 function renderMonster(monster) {
     let monsterName = document.createElement('h1')
     let monsterJName = document.createElement('h2')
-    let monsterPic = document.createElement('img')
 
     monster_hitpoints.innerHTML = (`Health: ${rMonsterHealth}`)
     monsterName.innerHTML = monster.name
@@ -233,7 +266,7 @@ function renderMonster(monster) {
         monsterPic.style.width = '250px'
         monsterPic.style.height = '275px'
     }
-let monsterSect = document.querySelector('#monsterDiv')
+    let monsterSect = document.querySelector('#monsterDiv')
 
     monsterSect.append(monsterName)
     monsterSect.append(monsterJName)
@@ -250,26 +283,19 @@ async function getHero() {
     }
 }
 
-function takePotion (){
-    if(4500 < heroHealth && potionAmount > 0){
+function takePotion() {
+    if (4500 < heroHealth && potionAmount > 0) {
         potionAmount -= 1
         heroHealth = 5000
         potion.innerHTML = (`Potion(${potionAmount})`)
         hero_hitpoints.innerHTML = (`Health: ${heroHealth}`)
-        
-    }else if (heroHealth < 4500 && potionAmount > 0){
+
+    } else if (heroHealth < 4500 && potionAmount > 0) {
         potionAmount -= 1
         heroHealth += 500
         potion.innerHTML = (`Potion(${potionAmount})`)
         hero_hitpoints.innerHTML = (`Health: ${heroHealth}`)
     }
-    // else if(potionAmount < 0){
-    //     potion.innerHTML = (`Potion:0`)
-    //     hero_hitpoints.innerHTML = (`Health: ${heroHealth}`)
-
-    // }
-        
-    
 }
 
 

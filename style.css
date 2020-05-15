@@ -8,15 +8,13 @@ body{
 }
 
 #buttons{
-
     display: block;
     position: absolute;
     bottom: 25px;
     left:120px;
     background-color: black;
     border: 2px solid white;
-    height: 100px;
-    
+    height: 100px;    
 }
 
 button{
@@ -31,8 +29,6 @@ button{
 button:hover{
     text-decoration: underline overline;
 }
-
-
 
 header{
     background: black;
