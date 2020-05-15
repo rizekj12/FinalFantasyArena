@@ -172,7 +172,7 @@ function lowerDamage() {
         let fadeOut = setInterval(() => {
             time -= 200
             heroPic.style.opacity = time / 2000
-            console.log(time)
+    
             if (time === 0) {
                 clearInterval(fadeOut)
             }
@@ -185,8 +185,6 @@ function lowerDamage() {
         heroPic.style.height = "320px"
         heroPic.style.width = "320px"
 
-        console.log(monsterImg)
-        console.log(monsterPic)
         let time = 2000
         let fadeOut = setInterval(() => {
             time -= 200
