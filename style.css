@@ -19,7 +19,8 @@ body{
 }
 
 button{
-    display: block;
+    display: flex;
+    flex-direction: row;
     color:white;
     background-color:black;
     border: 1px solid black;
@@ -35,7 +36,7 @@ header{
     background: black;
     color: white;
     text-align: center;
-    font-size: 50px;
+    font-size: 40px;
 }
 
 .monster-button{
@@ -63,6 +64,7 @@ header{
 }
 
 #monsterDiv{
+    flex-direction: column;
     position: absolute;
     display: inline-block;
     right:100px;
@@ -84,3 +86,9 @@ header{
     font-size: 25px;
 }
 
+.monster-name{
+
+   flex-direction: column;
+   align-content: space-around;
+    
+}

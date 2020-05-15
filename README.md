@@ -2,7 +2,7 @@
 
 
 # Project Overview
-https://git.generalassemb.ly/rizekj12/FinalFantasyArea
+https://pages.git.generalassemb.ly/rizekj12/FinalFantasyArena/
 
 ## Project Description
 
