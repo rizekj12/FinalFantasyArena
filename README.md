@@ -42,7 +42,7 @@ https://wireframe.cc/pro/pp/72053a9fd341718
 
 #### MVP
 
-- Use Pikachu to battle a random monster
+- Use the hero Cloud Strif to battle a random monster
 - attacks can either hit or miss
 - allow user to pick from 2 move sets to attack the enemy, move 1 will do less damage but have a higher chance of hitting, while move 2 will do more damage and less chance of hitting. 
 - reduce health points from the monster when they use an attack and have user's health reduced when attacked.
@@ -76,12 +76,12 @@ https://ibb.co/W3BdW1Z
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| HTML Structure | M | 2hr |  |  |
-| Basic CSS Styles | M | 3hrs |  |  |
-| Prompt | M | 2hrs |  |  |
-| Javascript battle functions | T| 6hrs |  |  |
-| Implementing API into Javascript code | W | 6hrs |  |  |
-| Polishing CSS and reviewing Javascript code |TH| 4hrs
-| Post MVP | TH | 5hrs 
-| Reviewing and polishing code | Fri | 3hrs
-| Total |   | 31hrs |  |   |
+| HTML Structure | M | 2hr | 1hr |  |
+| Basic CSS Styles | M | 3hrs | 4hrs |  |
+| alerts | M | 2hrs |  | 1hr |
+| Javascript battle functions | T| 6hrs | 7hrs |  |
+| Implementing API into Javascript code | W | 6hrs | 5hrs |  |
+| Polishing CSS and reviewing Javascript code |TH| 4hrs | 5hrs
+| Post MVP | TH | 5hrs | 4hrs
+| Reviewing and polishing code | Fri | 3hrs | 3hrs
+| Total |   | 31hrs |  | 30hrs   |
