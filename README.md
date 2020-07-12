@@ -75,7 +75,7 @@ https://ibb.co/W3BdW1Z
 ## Timeframes
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
-| --- | :---: |  :---: | :---: | :---: |
+----------------------------------------------------------------------
 | HTML Structure | M | 2hr | 1hr |  |
 | Basic CSS Styles | M | 3hrs | 4hrs |  |
 | alerts | M | 2hrs |  | 1hr |
