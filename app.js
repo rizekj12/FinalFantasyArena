@@ -83,7 +83,6 @@ function higherDamage() {
         let fadeOut = setInterval(() => {
             time -= 200
             heroPic.style.opacity = time / 2000
-            console.log(time)
             if (time === 0) {
                 clearInterval(fadeOut)
             }
@@ -101,7 +100,6 @@ function higherDamage() {
         let fadeOut = setInterval(() => {
             time -= 200
             monsterPic.style.opacity = time / 2000
-            console.log(time)
             if (time === 0) {
                 clearInterval(fadeOut)
             }
@@ -189,7 +187,6 @@ function lowerDamage() {
         let fadeOut = setInterval(() => {
             time -= 200
             monsterPic.style.opacity = time / 2000
-            console.log(time)
             if (time === 0) {
                 clearInterval(fadeOut)
             }
